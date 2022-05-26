@@ -1,0 +1,37 @@
+<mat-card>
+    <mat-card-title>{{movie.name}}</mat-card-title>
+    <mat-card-subtitle>{{movie.year}}</mat-card-subtitle>
+    <mat-card-content>
+        <p>
+            <span *ngFor="let genre of movie.genre"> &#x2022; {{genre}} </span>
+        </p>
+        <img mat-card-image src={{movie.thumbnailUrl}} alt="poster of {{movie.name}}" />
+        <p>{{movie.description}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button mat-dialog-close (click)="send()">Watch</button>
+        <button mat-raised-button mat-dialog-close>Add To Watchlist</button>
+        <button mat-raised-button mat-dialog-close>View Similar</button>
+    </mat-card-actions>
+</mat-card>
+
+
+<!-- 
+<h1 class="center">{{movie.name}}</h1>
+<h2 class="center">{{movie.year}}</h2>
+<div class="center" >
+    <p>
+        <span *ngFor="let genre of movie.genre"> &#x2022; {{genre}} </span>
+    </p>
+</div>
+<div class="center">
+    <img src={{movie.thumbnailUrl}} alt="poster of {{movie.name}}">
+</div>
+<div>
+    <p>{{movie.description}}</p>
+</div>
+<div mat-dialog-actions class="center">
+    <button mat-raised-button mat-dialog-close (click)="send()">Watch</button>
+    <button mat-raised-button mat-dialog-close>Add To Watchlist</button>
+    <button mat-raised-button mat-dialog-close>View Similar</button>
+</div> -->

@@ -1,28 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator/paginator';
+import { GetRecentMoviesService } from '../get-recent-movies.service';
+import { MovieElem } from '../movieElem';
 import { ThumbnailComponent } from '../thumbnail/thumbnail.component'; 
 
 
-export interface MovieElem {
-  id: number;
-  name: string;
-  url: string;
-  year: number;
-}
 
-const ELEMENT_DATA: MovieElem[] = [
-  {id: 1, name: 'Hydrogen',url: "xyz1",year: 2001},
-  {id: 2, name: 'Helium', url: "xyz2",year: 2001},
-  {id: 3, name: 'Lithium', url: "xyz3",year: 2001},
-  {id: 4, name: 'Beryllium', url: "xyz4",year: 2001},
-  {id: 5, name: 'Boron', url: "xyz5",year: 2001},
-  {id: 6, name: 'Carbon', url: "xyz6",year: 2001},
-  {id: 7, name: 'Nitrogen', url: "xyz7",year: 2001},
-  {id: 8, name: 'Oxygen', url: "xyz8",year: 2001},
-  {id: 9, name: 'Fluorine', url: "xyz9",year: 2001},
-  {id: 10, name: 'Neon', url: "xyz10",year: 2001},
-];
-
+ 
 @Component({
   selector: 'app-recent',
   templateUrl: './recent.component.html',
@@ -30,6 +14,8 @@ const ELEMENT_DATA: MovieElem[] = [
 })
 
 export class RecentComponent implements OnInit {
+
+  getRecentMoviesService: GetRecentMoviesService;
 
   length: number = 0;
   pageSize: number = 3;  //displaying three cards each row
@@ -42,11 +28,13 @@ export class RecentComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'name', 'url', 'year'];
 
-  constructor() { }
+  constructor(getRecentMoviesService: GetRecentMoviesService) {
+    this.getRecentMoviesService = getRecentMoviesService;
+  }
 
   ngOnInit(): void {
         this.breakpoint = (window.innerWidth <= 800) ? 1 : 3;
-        this.productsList = ELEMENT_DATA;
+        this.productsList = this.getRecentMoviesService.getRecentMovies();
         this.pagedList = this.productsList.slice(0, 3);
         this.length = this.productsList.length;
   }

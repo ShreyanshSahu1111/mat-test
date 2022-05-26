@@ -15,6 +15,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
+ import { MatDialogModule } from '@angular/material/dialog';
 
 import { VgCoreModule } from '@videogular/ngx-videogular/core';
 import { VgControlsModule } from '@videogular/ngx-videogular/controls';
@@ -26,6 +27,7 @@ import { RecentComponent } from './recent/recent.component';
 import { SearchComponent } from './search/search.component';
 import { ThumbnailComponent } from './thumbnail/thumbnail.component';
 import { WatchingComponent } from './watching/watching.component';
+import { MovieDialogComponent } from './movie-dialog/movie-dialog.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { WatchingComponent } from './watching/watching.component';
     RecentComponent,
     SearchComponent,
     ThumbnailComponent,
-    WatchingComponent
+    WatchingComponent,
+    MovieDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +54,7 @@ import { WatchingComponent } from './watching/watching.component';
     MatTableModule,
     MatGridListModule,
     MatCardModule,
+    MatDialogModule,
     VgCoreModule,
     VgControlsModule,
     VgOverlayPlayModule,

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MovieElem } from './recent/recent.component';
+import { MovieElem } from './movieElem';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +7,7 @@ import { MovieElem } from './recent/recent.component';
 export class WatchMovieService {
 
   constructor() { }
-  movie: MovieElem={id:0, name:"", url:"", year:0};
+  movie: MovieElem={id:0, name:"", thumbnailUrl:"", videoUrl:"", year:0, description:"", genre:[]};
   sendData(movie: MovieElem){
     console.log('save data function called' + movie.name + this.movie.name);
     this.movie=movie; 

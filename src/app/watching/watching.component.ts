@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MovieElem } from '../recent/recent.component';
+import { MovieElem } from '../movieElem';
 import { WatchMovieService } from '../watch-movie.service';
 
 @Component({

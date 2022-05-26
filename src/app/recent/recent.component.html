@@ -8,10 +8,8 @@
 <mat-grid-list cols="3" rowHeight="200" (window:resize)="onResize($event)">
     <mat-grid-tile *ngFor="let dict of pagedList" (click)="thumbnailOb.send">
         <!-- <a class="card-link" mat-raised-button class="card-link" href="/watching" (click)="thumbnailOb.send"> -->
-            <button mat-raised-button (click)="thumbnailOb.send()">
-                <app-thumbnail #thumbnailOb [movie]="dict">
-                </app-thumbnail>
-            </button>
+            <app-thumbnail #thumbnailOb [movie]="dict">
+            </app-thumbnail>
             
         <!-- </a> -->
     </mat-grid-tile>
